@@ -1,3 +1,9 @@
-const tmdbConfig = {};
+const baseUrl = process.env.THDB_BASE_URL;
+const key = process.env.TMDB_KEY;
 
-export default tmdbConfig;
+const getUrl = (endpoint, params) => {
+  const qs = new URLSearchParams(params);
+  return `${baseUrl}${endpoint}?api_key=${key}&${qs}`;
+};
+
+export default { getUrl };
